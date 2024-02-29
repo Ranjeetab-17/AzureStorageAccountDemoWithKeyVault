@@ -1,0 +1,34 @@
+﻿@model IEnumerable<string>
+
+<link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+
+<a asp-controller="Blobs" asp-action="Create"> Upload File </a>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr scope="col">
+            <th>File Name</th>
+            <th colspan="2">#Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr scope="row">
+                <td>
+                    <span>@item</span>
+                </td>
+                <td>                  
+                    <a href="/Blobs/Delete?fileName=@item">
+                       Delete
+                    </a>
+                </td>
+                <td>
+                    <a href="/Blobs/DownloadFile?fileName=@item">Download</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
